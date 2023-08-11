@@ -41,12 +41,13 @@ const Read = () => {
     console.log(id, "id");
     navigate(`/postpage/${id}`);
   };
-  
+  console.log(apiData, 'espark careers')
+
  
   return (
     
     <>
-      <TableContainer maxWidth="60%" margin="auto" mt={8}>
+      <TableContainer mt={8}>
         <Table
           variant="striped"
           colorScheme="gray"

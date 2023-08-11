@@ -29,8 +29,7 @@ const Navbar = (props) => {
       <Box pl="20%" {...props}>
         <Image height="10" src={logo} alt="E-spark logo" />
       </Box>
-      <Box pl="60%" >Home</Box>
-      <Sidebar />
+      <Box pl="60%">Home</Box>
     </Flex>
   );
 };

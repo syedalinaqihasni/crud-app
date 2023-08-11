@@ -7,6 +7,7 @@ import {
   VStack,
   useDisclosure,
   Stack,
+  Icon,
 } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,8 +21,8 @@ const Sidebar = () => {
   };
 
   const handleClickCareers = () => {
-    navigate('./eSparkCareers');
-  }
+    navigate("./eSparkCareers");
+  };
   return (
     <>
       <Box
@@ -43,9 +44,9 @@ const Sidebar = () => {
           onClick={onToggle}
           mt={2}
           mx="auto"
-          w="100px"
+          // w="100px"
         >
-          Dashboard
+          {isOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </Button>
 
         <VStack
@@ -64,7 +65,11 @@ const Sidebar = () => {
             eSpark Blogs
           </Button>
 
-          <Button colorScheme="teal" variant="ghost" onClick={()=> handleClickCareers()}>
+          <Button
+            colorScheme="teal"
+            variant="ghost"
+            onClick={() => handleClickCareers()}
+          >
             eSpark Careers
           </Button>
         </VStack>

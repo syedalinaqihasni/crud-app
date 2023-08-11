@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Read />} />
           <Route path={`postpage/:id`} element={<PostPage />} />
           <Route path="/esparkBlogs" element={<Read />} />
+          <Route path="/eSparkCareers" element={<EsparkCareers />} />
         </Routes>
       </Layout>
     </Router>
