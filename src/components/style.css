@@ -1,3 +1,72 @@
 .chakra-text {
-  border: 1px solid rgb(223, 214, 214);
+  justify-content: center;
 }
+
+.chakra-text :nth-child(4) {
+  word-wrap: break-word;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: rgb(60, 153, 153);
+  text-align: center;
+  font-style: italic;
+
+}
+.chakra-text :nth-child(6) {
+  font-weight: 700;
+  color: rgb(60, 153, 153);
+  text-align: center;
+  font-style: italic;
+}
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: black;
+  word-spacing: 1px;
+  margin: 5px 0;
+}
+
+.post-page-title {
+  font-weight: 700;
+  align-items: center;
+}
+
+/* .alignright{
+ color: red;
+ text-align: center;
+} */
+
+.td-modal-image {
+  display: flex;
+  justify-content: center;
+}
+.wp-image-1132 {
+  margin-top: 10px;
+  width: 400px;
+  height: 300px;
+}
+.wp-image-1120 {
+  width: 400px;
+  height: 400px;
+}
+
+.navbar {
+  background-color: white;
+  position:sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  padding-right: 20px;
+  overflow: hidden;
+  z-index: 1;
+  padding-left: 10%;
+  /* width: 88.15%; */
+  /* margin-left: 200px; */
+  /* margin: auto; */
+  top: 0;
+  border-bottom: solid 1px var(--primary-color);
+  /* opacity: 0.9; */
+  top: 0;
+}
+
+

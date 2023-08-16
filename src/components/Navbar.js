@@ -1,35 +1,37 @@
 import React from "react";
-import { Box, Flex, Spacer, chakra, Image } from "@chakra-ui/react";
+import { Box, Flex, Image, Button } from "@chakra-ui/react";
 import logo from "../Images/logo.png";
-import Read from "./Read";
-import Sidebar from "./Sidebar";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
+  const navigate = useNavigate();
+
+  const handleClickHome = () => {
+    navigate("/");
+  };
+
   return (
-    // <chakra.header  bg="gray.800" px={4} py={3}>
-    //   <Flex alignItems="center" justifyContent="space-between">
-    //     <Box>
-    //       <chakra.a href="/" fontSize="xl" fontWeight="bold" color="white">
-    //       <Image ml={60} height='10' src={logo} alt='Dan Abramov' />
-    //       </chakra.a>
-    //     </Box>
-    //     <Spacer />
-    //     <Box>
-    //       <chakra.a href="/" mr={4} color="white">
-    //         Home
-    //       </chakra.a>
-    //       {/* <chakra.a href="#" color="white">
-
-    //       </chakra.a> */}
-    //     </Box>
-    //   </Flex>
-    // </chakra.header>
-
-    <Flex backgroundColor="li" align="center" justify="flex start" p="10px">
-      <Box pl="20%" {...props}>
+    <Flex
+      align="center"
+      justifyContent="space-between"
+      justify="flex start"
+      px={10}
+      py={1}
+      bg='#f1f1f1'
+    >
+      <Box>
         <Image height="10" src={logo} alt="E-spark logo" />
       </Box>
-      <Box pl="60%">Home</Box>
+      <Box mr="5">
+        <Button
+          colorScheme="teal"
+          variant="ghost"
+          // maxW="70vw"
+          onClick={() => handleClickHome()}
+        >
+          Home
+        </Button>
+      </Box>
     </Flex>
   );
 };

@@ -1,10 +1,10 @@
-import { Box } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import React from "react";
 
 const EsparkCareers = () => {
   return (
     <>
-      EspardasdsakCareers
+  <Text textAlign='center' mt='50px'> eSpark Careers</Text>
     </>
   );
 };

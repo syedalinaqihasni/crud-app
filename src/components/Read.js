@@ -9,7 +9,7 @@ import {
   TableContainer,
   Button,
   Heading,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import axios from "axios";
@@ -18,7 +18,7 @@ import DOMPurify from "dompurify";
 
 const Read = () => {
   const navigate = useNavigate();
-  
+
   //  dangerouslySetInnerHTML={{ __html: DOMPurify?.sanitize(data) }}
 
   const [apiData, setApiData] = useState([]);
@@ -26,7 +26,7 @@ const Read = () => {
   useEffect(() => {
     const getData = () => {
       axios
-        .get("https://demo.tagdiv.com/newspaper_pro/wp-json/wp/v2/posts")
+        .get("https://esparkconsultants.com/old/wp-json/wp/v2/posts")
         .then((res) => {
           setApiData(res.data);
           console.log(res.data);
@@ -39,22 +39,19 @@ const Read = () => {
   }, []);
   const handleClick = (id) => {
     console.log(id, "id");
-    navigate(`/postpage/${id}`);
+    navigate(`/blogs/${id}`);
   };
-  console.log(apiData, 'espark careers')
 
- 
+
   return (
-    
     <>
-      <TableContainer mt={8}>
+      <TableContainer >
         <Table
-          variant="striped"
+          // variant="striped"
           colorScheme="gray"
           size="sm"
-   
         >
-          <Thead background='gray.300'>
+          <Thead background="#b9cccf">
             <Tr>
               <Th>S.no</Th>
               <Th>Post Title</Th>
@@ -69,28 +66,41 @@ const Read = () => {
               <Tbody>
                 <Tr>
                   <Td>{index + 1}</Td>
-                  <Td onClick={() => handleClick(item.id)} whiteSpace="initial">
-                    <Heading
-                      size="sm"
-                      _hover={{ bg: "blue.100" }}
+                  <Td whiteSpace="initial">
+                    <Text
+                      as="b"
+                      onClick={() => handleClick(item.id)}
+                      _hover={{ bg: "#f9f9f9" }}
                       colorScheme="linkedin"
-                      style={{cursor: 'pointer'}}
+                      style={{ cursor: "pointer" }}
                     >
                       {item.title.rendered}
-                    </Heading>
-                    <br />
-                    <Text style={{ textWrap: "balance" }} dangerouslySetInnerHTML={{ __html: DOMPurify?.sanitize(item.excerpt.rendered) }}>
-
                     </Text>
+                    <br />
+                    <Text
+                      style={{ textWrap: "balance" }}
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify?.sanitize(item.excerpt.rendered),
+                      }}
+                    ></Text>
                   </Td>
-                  <Td>{item.status}</Td>
+                  <Td>
+                    <Button
+                      size="sm"
+                      colorScheme="teal"
+                      variant="solid"
+                      style={{ cursor: "pointer" }}
+                    >
+                      {item.status}
+                    </Button>
+                  </Td>
                   <Td>{item.modified}</Td>
                   <Td>
-                    <Button mr={2} colorScheme="teal" variant="outline">
-                      {<DeleteIcon viewBox="20" w={8} h={8} color="red.500" />}
+                    <Button variant="ghost" mr="-2">
+                      {<DeleteIcon color="red.500" />}
                     </Button>
-                    <Button colorScheme="teal" variant="outline">
-                      {<EditIcon viewBox="15" w={7} h={7} color="green.500" />}
+                    <Button variant="ghost">
+                      {<EditIcon color="green.500" />}
                     </Button>
                   </Td>
                 </Tr>

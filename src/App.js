@@ -7,18 +7,20 @@ import Edit from "./components/Update";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PostPage from "./PostPage";
-import Sidebar from "./components/Sidebar";
 import Layout from "./components/Layout";
 import EsparkCareers from "./components/EsparkCareers";
+
 function App() {
   return (
     <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Read />} />
-          <Route path={`postpage/:id`} element={<PostPage />} />
-          <Route path="/esparkBlogs" element={<Read />} />
-          <Route path="/eSparkCareers" element={<EsparkCareers />} />
+          <Route path={`blogs/:id`} element={<PostPage />} />  
+          <Route path="/blogs" element={<Read />} />
+          <Route path="/careers" element={<EsparkCareers />} />
+          <Route path="/create" element={<Create/>} />
+          
         </Routes>
       </Layout>
     </Router>

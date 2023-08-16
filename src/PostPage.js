@@ -1,21 +1,17 @@
 import {
-  VStack,
-  Box,
-  Stack,
   Text,
-  StackDivider,
   Heading,
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  Container,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import "../src/components/style.css";
+import { findByText } from "@testing-library/react";
 
 const PostPage = () => {
   const { id } = useParams();
@@ -28,7 +24,7 @@ const PostPage = () => {
   useEffect(() => {
     const getData = () => {
       axios
-        .get(`https://demo.tagdiv.com/newspaper_pro/wp-json/wp/v2/posts/${id}`)
+        .get(`https://esparkconsultants.com/old/wp-json/wp/v2/posts/${id}`)
         .then((res) => {
           setApiData(res.data);
           setPostCategory(res.data.categories);
@@ -39,7 +35,7 @@ const PostPage = () => {
     };
     const categoriesData = () => {
       axios
-        .get(`https://demo.tagdiv.com/newspaper_pro/wp-json/wp/v2/categories`)
+        .get(`https://esparkconsultants.com/old/wp-json/wp/v2/categories`)
         .then((res) => {
           setCategories(res.data);
         })
@@ -62,45 +58,32 @@ const PostPage = () => {
 
   const data = apiData?.content?.rendered;
 
-  // console.log(apiData);
+  // console.log(apiData);Categories
 
   return (
     <>
-      {/* <Box>
-        <Stack ml="30%">
-          <VStack>
-            <Heading textAlign="center">Content</Heading>
-            <div
-              dangerouslySetInnerHTML={{ __html: DOMPurify?.sanitize(data) }}
-            ></div>
-          </VStack>
-          <VStack>
-            <Heading textAlign="center" size="md">
-              Categories
-            </Heading>
-            <Text textAlign="center" color="Highlight">
-              {finalcategory}
-            </Text>
-          </VStack>
-        </Stack>
-      </Box> */}
-      <Container ml="40%">
-        <Card align="center">
+   
+        <Card align="center" h='100vh'>  
           <CardHeader>
-            <Heading size="md"> Content</Heading>
+            <Heading size="lg" textAlign='center' mb='10px'> Complete Blog</Heading>
+            <Text className="post-page-title" color='teal.600'>{apiData?.title?.rendered}</Text>
           </CardHeader>
           <CardBody>
-            <Text
+            <Text className="content-data"
               dangerouslySetInnerHTML={{ __html: DOMPurify?.sanitize(data) }}
-            ></Text>
+            >
+            </Text>
+          
           </CardBody>
           <CardFooter>
-            <Text textAlign="center" color="Highlight">
-              {finalcategory}
+            <Text color='teal.600' fontWeight='bold' >
+              Category : 
+            </Text>
+            <Text textAlign="center" color='black' ml='5px'> 
+            {finalcategory}
             </Text>
           </CardFooter>
         </Card>
-      </Container>
     </>
   );
 };
