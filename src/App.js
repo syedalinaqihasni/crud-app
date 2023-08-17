@@ -4,6 +4,7 @@ import Create from "./components/Create";
 import Delete from "./components/Delete";
 import Read from "./components/Read";
 import Edit from "./components/Update";
+import WordPressPostForm from "./components/WordPressPostForm";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PostPage from "./PostPage";
@@ -20,7 +21,7 @@ function App() {
           <Route path="/blogs" element={<Read />} />
           <Route path="/careers" element={<EsparkCareers />} />
           <Route path="/create" element={<Create/>} />
-          
+          <Route path="/wordpresspostform" element={<WordPressPostForm/>} />
         </Routes>
       </Layout>
     </Router>

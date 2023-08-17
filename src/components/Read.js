@@ -10,10 +10,12 @@ import {
   Button,
   Heading,
   Text,
+  Box,
+  HStack,
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 
 const Read = () => {
@@ -42,10 +44,15 @@ const Read = () => {
     navigate(`/blogs/${id}`);
   };
 
-
   return (
     <>
-      <TableContainer >
+      <HStack justify="flex-end" my={3} color="teal" pr="20">
+        <Button colorScheme="teal" variant='solid'>
+          <Link to="/create">Add New Blog</Link>
+        </Button>
+      </HStack>
+
+      <TableContainer>
         <Table
           // variant="striped"
           colorScheme="gray"
